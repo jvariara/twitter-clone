@@ -25,6 +25,12 @@
     color: var(--twitter-color);
 }
 
+button {
+    border: none;
+    background-color: #fff;
+    padding-right: 40px;
+}
+
 @media (max-width: 768px) {
     .sidebarOption > h2 {
         display: none;
