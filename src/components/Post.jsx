@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { Button, Avatar } from "@mui/material";
 import "../css/Post.css";
 import VerifiedIcon from "@mui/icons-material/Verified";
@@ -7,9 +7,16 @@ import RepeatIcon from "@mui/icons-material/Repeat";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PublishIcon from "@mui/icons-material/Publish";
 
-function Post({ displayName, username, verified, text, image, avatar }) {
+const Post = forwardRef(({ 
+    displayName, 
+    username, 
+    verified, 
+    text, 
+    image, 
+    avatar 
+}, ref) => {
   return (
-    <div className="post">
+    <div className="post" ref={ref}>
       <div className="post__avatar">
         <Avatar src={avatar} />
       </div>
@@ -19,10 +26,8 @@ function Post({ displayName, username, verified, text, image, avatar }) {
             <h3>
               {displayName}{" "}
               <span className="post__header--special">
-                {
-                    verified && <VerifiedIcon className="post__badge" />
-                }
-                @{username}
+                {verified && <VerifiedIcon className="post__badge" />}@
+                {username}
               </span>
             </h3>
           </div>
@@ -30,10 +35,7 @@ function Post({ displayName, username, verified, text, image, avatar }) {
             <p>{text}</p>
           </div>
         </div>
-        <img
-          src={image}
-          alt=""
-        />
+        <img src={image} alt="" />
         <div className="post__footer">
           <ChatBubbleOutlineIcon fontSize="small" />
           <RepeatIcon fontSize="small" />
@@ -43,6 +45,6 @@ function Post({ displayName, username, verified, text, image, avatar }) {
       </div>
     </div>
   );
-}
+});
 
 export default Post;
