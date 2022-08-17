@@ -1,0 +1,54 @@
+.login {
+    display: flex;
+    max-width: 100vw;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.img__wrapper {
+    height: 100%;
+    width: 60%;
+    z-index: -1;
+    
+}
+
+.login__background--img {
+    width: 100%;
+    height: 100%;
+    overflow: none;
+    
+}
+
+.login__rightSide {
+    width: 40%;
+    padding: 16px;
+}
+
+.login__rightSide > .MuiSvgIcon-root {
+    color: var(--twitter-color);
+    font-size: 42px;
+}
+
+.login__rightSide > h1 {
+    font-size: 56px;
+    margin: 36px 0;
+}
+
+.login__rightSide > h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 36px;
+}
+
+.login__btn {
+    background-color: var(--twitter-color) !important;
+    border: none !important;
+    color: #fff !important;
+    font-weight: 900 !important;
+    text-transform: inherit !important;
+    border-radius: 30px !important;
+    height: 50px !important;
+    margin-top: 20px !important;
+    padding: 0 32px !important;
+}

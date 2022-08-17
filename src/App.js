@@ -1,14 +1,21 @@
 import './App.css';
-import Feed from './components/Feed';
-import Sidebar from './components/Sidebar';
-import Widgets from './components/Widgets';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Home from './components/Home';
+import Login from './components/Login';
 
 function App() {
   return (
     <div className="app">
-      <Sidebar />
-      <Feed />
-      <Widgets />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
