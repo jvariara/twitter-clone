@@ -10,7 +10,10 @@ function Feed() {
 
   useEffect(() => {
     db.collection("posts").onSnapshot((snapshot) => {
-      setPosts(snapshot.docs.map((doc) => doc.data()));
+      setPosts(snapshot.docs.map((doc) => ({
+        data: doc.data(),
+        id: doc.id,
+      })));
     });
   }, []);
 
@@ -24,13 +27,13 @@ function Feed() {
       <FlipMove>
         {posts.map((post) => (
           <Post
-            key={post.text}
-            displayName={post.displayName}
-            username={post.username}
-            verified={post.verified}
-            text={post.text}
-            avatar={post.avatar}
-            image={post.image}
+            key={post.id}
+            displayName={post.data.displayName}
+            username={post.data.username}
+            verified={post.data.verified}
+            text={post.data.text}
+            avatar={post.data.avatar}
+            image={post.data.image}
           />
         ))}
       </FlipMove>
