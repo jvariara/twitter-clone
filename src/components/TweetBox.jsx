@@ -2,6 +2,9 @@ import { Button, Avatar } from "@mui/material";
 import React, { useState } from "react";
 import "../css/TweetBox.css";
 import db from "../firebase";
+// import firebase from "firebase/combat/app";
+// import firebase from 'firebase/firestore'
+import { serverTimestamp } from 'firebase/firestore'
 import {
     selectUserName,
     selectUserPhoto,
@@ -35,6 +38,7 @@ function TweetBox() {
 
     db.collection("posts").add({
       displayName: userName,
+      timestamp: serverTimestamp(),
       username: getUsername(),
       verified: true,
       text: tweetMessage,
@@ -60,7 +64,7 @@ function TweetBox() {
         </div>
         <input
           value={tweetImage}
-          onChange={(e) => e.target.value}
+          onChange={(e) => setTweetImage(e.target.value)}
           className="tweetBox__inputImg"
           placeholder="OPTIONAL: Enter image URL"
           type="text"
